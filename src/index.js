@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 // Component Lifecycle
 // constructor (one-time setup, state initialize) ->
@@ -45,7 +46,7 @@ class App extends React.Component {
     }
 
     // Loading Screen
-    return <div>Loading!</div>;
+    return <Spinner />;
   }
 }
 
