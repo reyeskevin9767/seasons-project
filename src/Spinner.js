@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Function Component
 const Spinner = ({ message }) => {
   return (
     <div className="ui active dimmer">
@@ -8,6 +9,7 @@ const Spinner = ({ message }) => {
   );
 };
 
+// Give message a default value
 Spinner.defaultProps = {
   message: 'Loading...',
 };

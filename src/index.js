@@ -33,8 +33,8 @@ class App extends React.Component {
     );
   }
 
-  // Render method required for every react component
-  render() {
+  // Avoid conditionals in render
+  renderContent() {
     // Return Error
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
@@ -47,6 +47,11 @@ class App extends React.Component {
 
     // Loading Screen
     return <Spinner message="Please Accept Location Request" />;
+  }
+
+  // Render method required for every react component
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 
