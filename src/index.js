@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SeasonDisplay from './SeasonDisplay';
 
 // Component Lifecycle
 // constructor (one-time setup, state initialize) ->
@@ -40,7 +41,7 @@ class App extends React.Component {
 
     // Return Latitude
     if (!this.state.errorMessage && this.state.lat) {
-      return <div>Latitude: {this.state.lat}</div>;
+      return <SeasonDisplay lat={this.state.lat} />;
     }
 
     // Loading Screen
