@@ -46,7 +46,7 @@ class App extends React.Component {
     }
 
     // Loading Screen
-    return <Spinner />;
+    return <Spinner message="Please Accept Location Request" />;
   }
 }
 
