@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Component Lifecycle
+// constructor (one-time setup, state initialize) ->
+// render (return JSX) ->
+// componentDidMount (data-loading) ->
+// componentDidUpdate (data-loading when state/props change) ->
+// componentWillUnmount (clean-up)
+
 // Class Component
 class App extends React.Component {
   // Creating an instance of app component, constructor function is
@@ -12,7 +19,10 @@ class App extends React.Component {
     // Initialize State object
     // Updating state, causes component to rerender
     this.state = { lat: null, errorMessage: '' };
+  }
 
+  // load the first time, component is rendered
+  componentDidMount() {
     // Get user position from api (takes time)
     window.navigator.geolocation.getCurrentPosition(
       // Successfully get the user position (Success Callback)
