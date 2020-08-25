@@ -10,16 +10,8 @@ import ReactDOM from 'react-dom';
 
 // Class Component
 class App extends React.Component {
-  // Creating an instance of app component, constructor function is
-  // automatically and instantly called before anything else
-  constructor(props) {
-    // Reference parents constructor
-    super(props);
-
-    // Initialize State object
-    // Updating state, causes component to rerender
-    this.state = { lat: null, errorMessage: '' };
-  }
+  // Alternative way to initialize state and creates the constructor
+  state = { lat: null, errorMessage: '' };
 
   // load the first time, component is rendered
   componentDidMount() {
