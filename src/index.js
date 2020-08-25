@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom';
 
 // Class Component
 class App extends React.Component {
+  // Creating an instance of app component, constructor function is
+  // automatically and instantly called before anything else
+  constructor(props) {
+    // Reference parents constructor
+    super(props);
+
+    // Initialize State object
+    this.state = { lat: null };
+  }
+
+  // Render method required for every react component
   render() {
     // Get user position from api (takes time)
     window.navigator.geolocation.getCurrentPosition(
@@ -13,7 +24,7 @@ class App extends React.Component {
       (err) => console.log(err)
     );
 
-    return <div>Hi There</div>;
+    return <div>Lat</div>;
   }
 }
 
