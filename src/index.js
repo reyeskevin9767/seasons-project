@@ -10,21 +10,39 @@ class App extends React.Component {
     super(props);
 
     // Initialize State object
-    this.state = { lat: null };
+    // Updating state, causes component to rerender
+    this.state = { lat: null, errorMessage: '' };
+
+    // Get user position from api (takes time)
+    window.navigator.geolocation.getCurrentPosition(
+      // Successfully get the user position (Success Callback)
+      (position) => {
+        // Update state
+        this.setState({ lat: position.coords.latitude });
+      },
+
+      // Failed to get the user position (Fail Callback)
+      (err) => {
+        // Update state
+        this.setState({ errorMessage: err.message });
+      }
+    );
   }
 
   // Render method required for every react component
   render() {
-    // Get user position from api (takes time)
-    window.navigator.geolocation.getCurrentPosition(
-      // Successfully get the user position (Success Callback)
-      (position) => console.log(position),
+    // Return Error
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>Error: {this.state.errorMessage}</div>;
+    }
 
-      // Failed to get the user position (Fail Callback)
-      (err) => console.log(err)
-    );
+    // Return Latitude
+    if (!this.state.errorMessage && this.state.lat) {
+      return <div>Latitude: {this.state.lat}</div>;
+    }
 
-    return <div>Lat</div>;
+    // Loading Screen
+    return <div>Loading!</div>;
   }
 }
 
